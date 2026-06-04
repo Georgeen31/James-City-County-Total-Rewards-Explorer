@@ -1,0 +1,756 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>James City County | Total Rewards Explorer</title>
+<style>
+:root{--blue:#0071BC;--navy:#003B71;--green:#007A53;--red:#C8102E;--sky:#EAF5FC;--mint:#EAF8F2;--rose:#FFF1F3;--ink:#1f2937;--muted:#5e6877;--border:#cbd5e1;--bg:#f5f8fb;--shadow:0 16px 35px rgba(0,59,113,.13)}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(180deg,#f7fbff,#f2f6fa);color:var(--ink)}header{background:linear-gradient(135deg,#fff,#f9fcff 55%,#edf7fc);border-bottom:6px solid var(--green)}.head{max-width:1280px;margin:auto;padding:28px;display:flex;gap:28px;align-items:center}.logo{width:210px;max-width:32vw;height:auto}.eyebrow{color:var(--green);font-weight:900;letter-spacing:.08em;text-transform:uppercase;font-size:13px}h1{margin:6px 0;color:var(--navy);font-size:44px;line-height:1.05}.subtitle{margin:0;color:var(--muted);font-size:19px;max-width:850px}.note-pill{display:inline-block;margin-top:14px;background:var(--sky);color:var(--navy);border:1px solid #b8d9ee;border-radius:999px;padding:8px 14px;font-weight:800;font-size:14px}main{max-width:1280px;margin:28px auto 46px;padding:0 24px}.intro{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;margin-bottom:20px}.intro>section,.panel,.card{background:#fff;border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow)}.intro>section{padding:22px}.intro h2,.panel h2{margin:0 0 10px;color:var(--navy)}.pill{display:inline-block;border-radius:999px;padding:8px 12px;font-weight:800;font-size:13px;background:var(--sky);color:var(--navy);margin:4px}.green-pill{background:var(--mint);color:var(--green)}.red-pill{background:var(--rose);color:var(--red)}.tabs{display:grid;grid-template-columns:repeat(8,1fr);gap:8px}.tab{border:1px solid var(--border);background:#fff;color:var(--navy);padding:13px 8px;border-radius:14px 14px 0 0;font-weight:900;font-size:13px;cursor:pointer;min-height:64px}.tab.active{background:linear-gradient(135deg,var(--blue),var(--navy));color:#fff}.panel{display:none;border-radius:0 0 18px 18px;padding:30px}.panel.active{display:block}.grid{display:grid;grid-template-columns:1.18fr .82fr;gap:24px}.two,.three,.four{display:grid;gap:14px}.two{grid-template-columns:repeat(2,1fr)}.three{grid-template-columns:repeat(3,1fr)}.four{grid-template-columns:repeat(4,1fr)}.card{padding:20px;margin-bottom:18px;box-shadow:none}.blue{background:linear-gradient(135deg,#fff,var(--sky))}.green{background:linear-gradient(135deg,#fff,var(--mint))}.red{background:linear-gradient(135deg,#fff,var(--rose))}h3{margin:0 0 12px;color:var(--navy)}p,li{line-height:1.5}label{display:block;font-weight:900;margin:14px 0 6px;color:#111827}input,select{width:100%;padding:12px;border:1px solid var(--border);border-radius:10px;font-size:16px;background:#fff}input[readonly]{background:#f3f6f8;color:#4b5563}.result{color:var(--green);font-size:32px;font-weight:900;margin:8px 0 16px}.big{color:var(--green);font-size:42px;font-weight:900;margin:10px 0 4px}.kpi{display:flex;justify-content:space-between;gap:16px;border-bottom:1px solid #e5eaf0;padding:11px 0}.kpi:last-child{border-bottom:0}.kpi strong{text-align:right;color:#111827}.badge{display:inline-block;background:var(--sky);color:var(--navy);padding:6px 11px;border-radius:999px;font-weight:900;font-size:13px}.callout{border-left:6px solid var(--blue);background:#f8fbff;border-radius:12px;padding:16px;border:1px solid #c5dff1;font-size:14px}.warning{border-left-color:#f97316;background:#fff8f0;border-color:#fed7aa}table{width:100%;border-collapse:collapse;border-radius:12px;overflow:hidden}th,td{text-align:left;border-bottom:1px solid #e5eaf0;padding:12px}th{background:var(--navy);color:#fff}tr:nth-child(even) td{background:#f8fafc}details{border:1px solid var(--border);border-radius:14px;margin-bottom:12px;background:#fff;overflow:hidden}summary{cursor:pointer;padding:16px 18px;font-weight:900;color:var(--navy);background:#f8fbff}.details-body{padding:0 18px 18px}.toggle{display:flex;align-items:center;gap:12px;margin:12px 0 18px}.toggle input,.radio-card input{width:auto}.radio-row{display:flex;flex-wrap:wrap;gap:12px;margin:12px 0 8px}.radio-card{flex:1;min-width:220px;border:1px solid var(--border);border-radius:14px;padding:14px;cursor:pointer;background:#fff}.hidden{display:none!important}button.action{background:var(--blue);color:#fff;border:0;padding:12px 18px;border-radius:10px;cursor:pointer;font-weight:900;margin:6px 6px 0 0}button.secondary{background:#fff;color:var(--blue);border:1px solid var(--blue)}footer{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:22px 42px}.foot{max-width:1280px;margin:auto;display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;font-size:17px}.mission{font-style:italic}.print-only{display:none}
+@media(max-width:1100px){.tabs{grid-template-columns:repeat(2,1fr)}.grid,.three,.four,.two,.intro{grid-template-columns:1fr}}
+@media(max-width:780px){.head{flex-direction:column;align-items:flex-start}.logo{max-width:260px;width:60vw}.tabs{grid-template-columns:1fr}h1{font-size:34px}}
+@media print{header,.tabs,.intro,footer,.actions{display:none}body{background:#fff}.panel{display:none!important;border:0;box-shadow:none;padding:0}#summary{display:block!important}.print-only{display:block}}
+
+/* Mobile usability enhancements */
+.mobile-section-nav{
+  display:none;
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:16px;
+  margin-bottom:14px;
+  box-shadow:var(--shadow);
+}
+.mobile-section-nav label{
+  margin:0 0 8px;
+  color:var(--jcc-navy);
+}
+.mobile-section-nav select{
+  min-height:48px;
+  font-weight:800;
+}
+.back-to-top{
+  display:none;
+  position:fixed;
+  right:16px;
+  bottom:16px;
+  z-index:999;
+  background:var(--jcc-navy);
+  color:#fff;
+  border:0;
+  border-radius:999px;
+  padding:12px 16px;
+  font-weight:900;
+  box-shadow:0 8px 18px rgba(0,0,0,.18);
+}
+.table-scroll{
+  width:100%;
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+}
+.table-scroll table{
+  min-width:620px;
+}
+@media(max-width:780px){
+  body{
+    background:#f7fbff;
+  }
+  .container{
+    padding:0 14px;
+    margin:16px auto 34px;
+  }
+  .header-inner{
+    padding:20px 18px;
+    gap:14px;
+  }
+  .logo{
+    width:170px;
+    max-width:75vw;
+  }
+  h1{
+    font-size:30px;
+    line-height:1.1;
+  }
+  .subtitle{
+    font-size:16px;
+  }
+  .hero-note{
+    border-radius:12px;
+    display:block;
+    line-height:1.35;
+  }
+  .onboarding-grid{
+    gap:12px;
+    margin-bottom:14px;
+  }
+  .welcome-card,.quick-card{
+    padding:16px;
+    border-radius:14px;
+  }
+  .tabs{
+    display:none;
+  }
+  .mobile-section-nav{
+    display:block;
+    position:sticky;
+    top:0;
+    z-index:50;
+  }
+  .panel{
+    padding:18px;
+    border-radius:16px;
+  }
+  .card{
+    padding:16px;
+    border-radius:14px;
+    margin-bottom:14px;
+  }
+  .grid,.two,.three,.four{
+    grid-template-columns:1fr !important;
+    gap:12px;
+  }
+  input,select{
+    min-height:48px;
+    font-size:16px;
+  }
+  .result{
+    font-size:28px;
+  }
+  .big-result{
+    font-size:32px;
+  }
+  .kpi{
+    display:block;
+    padding:12px 0;
+  }
+  .kpi strong{
+    display:block;
+    text-align:left;
+    margin-top:4px;
+  }
+  table{
+    font-size:14px;
+  }
+  th,td{
+    padding:10px;
+    white-space:nowrap;
+  }
+  .actions{
+    display:grid;
+    grid-template-columns:1fr;
+  }
+  button.action{
+    width:100%;
+    min-height:48px;
+  }
+  .back-to-top{
+    display:block;
+  }
+  footer{
+    padding:18px;
+    padding-bottom:76px;
+  }
+  .footer-inner{
+    font-size:15px;
+  }
+}
+
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+<header><div class="head"><img class="logo" src="data:image/jpeg;base64,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" alt="James City County Logo"><div><h1>Total Rewards Explorer</h1><p class="subtitle">Explore your salary, benefits, and total rewards package to better understand the value of working for James City County.</p><div class="note-pill">Based on 24 James City County pay periods per year</div></div></div></header>
+<main>
+<div class="intro"><section style="border-top:6px solid var(--blue)"><h2>Welcome to James City County</h2><p>This tool helps new hires estimate pay and benefit costs before finalizing enrollment decisions. It also highlights the County’s investment in employee benefits.</p><span class="pill">Salary or hourly</span><span class="pill green-pill">Medical, dental & vision</span><span class="pill">VRS 5%</span><span class="pill red-pill">Critical illness</span><span class="pill">Total rewards</span></section><section style="border-top:6px solid var(--red)"><h2>Before You Begin</h2><p>Have your offer salary or hourly rate available. This tool estimates gross pay and selected deductions only. It does not calculate taxes or final payroll amounts.</p></section></div>
+<nav class="tabs"><button class="tab active" onclick="showTab('salary',this)">1. Salary / Hourly</button><button class="tab" onclick="showTab('benefits',this)">2. Benefit Elections</button><button class="tab" onclick="showTab('retire',this)">3. Retirement / 457</button><button class="tab" onclick="showTab('impact',this)">4. Paycheck Impact</button><button class="tab" onclick="showTab('compare',this)">5. Compare Elections</button><button class="tab" onclick="showTab('rewards',this)">6. Total Rewards</button><button class="tab" onclick="showTab('learn',this)">7. HSA / FSA Help</button><button class="tab" onclick="showTab('summary',this)">8. Summary</button></nav>
+
+  <div class="mobile-section-nav">
+    <label for="mobileSectionSelect">Choose a section</label>
+    <select id="mobileSectionSelect" aria-label="Choose a calculator section" onchange="showTabFromSelect(this.value)"></select>
+  </div>
+<section id="salary" class="panel active"><div class="grid"><div><h2>Salary or Hourly Pay Estimate</h2><p>Choose whether to calculate using an annual salary or hourly rate.</p><div class="card blue"><h3>Calculation Method</h3><div class="radio-row"><label class="radio-card"><input type="radio" name="payMode" value="salary" checked onchange="switchMode()"> <strong>Annual salary</strong><br>Use the annual salary from your offer.</label><label class="radio-card"><input type="radio" name="payMode" value="hourly" onchange="switchMode()"> <strong>Hourly rate</strong><br>Use your hourly rate and weekly hours.</label></div><div id="salaryInputs"><label>Incoming Annual Salary</label><input id="salaryVal" type="number" value="55000" min="0" step="100" oninput="calculateAll()"></div><div id="hourlyInputs" class="hidden"><div class="two"><div><label>Incoming Hourly Rate</label><input id="hourlyVal" type="number" value="26.44" min="0" step=".01" oninput="calculateAll()"></div><div><label>Hours Worked Per Week</label><input id="hoursWeek" type="number" value="40" min="1" step=".25" oninput="calculateAll()"></div></div></div><div class="three"><div><label>Pay Periods Per Year</label><input value="24" readonly></div><div><label>Annual Hours</label><input id="annualHours" value="2080" readonly></div><div><label>Monthly Gross Estimate</label><input id="monthlyGross" value="$0.00" readonly></div></div></div><div class="card blue"><h3>Optional Future Increase Estimate</h3><div class="toggle"><input id="increaseToggle" type="checkbox" checked onchange="calculateAll()"><label style="margin:0">Show future pay increase estimate</label></div><div id="increaseInputs"><label>Increase Percentage</label><input id="increasePct" type="number" value="4" min="0" step=".25" oninput="calculateAll()"></div></div></div><aside><div class="card green"><h3>Estimated Gross Pay</h3><span class="badge">Before taxes and deductions</span><p>Per Pay Period</p><div id="grossPerPay" class="result">$0.00</div><div class="kpi"><span>Annual gross pay</span><strong id="annualPay">$0.00</strong></div><div class="kpi"><span>Hourly equivalent</span><strong id="hourlyEq">$0.00</strong></div><div class="kpi"><span>Annual hours used</span><strong id="annualHoursText">2,080</strong></div></div><div class="card"><h3>Future Increase Preview</h3><div id="increaseResults"><div class="kpi"><span>New annual gross pay</span><strong id="incAnnualPay">$0.00</strong></div><div class="kpi"><span>Annual increase</span><strong id="incAmount">$0.00</strong></div><div class="kpi"><span>Increase per pay period</span><strong id="incPerPay">$0.00</strong></div><div class="kpi"><span>New hourly equivalent</span><strong id="incHourly">$0.00</strong></div></div><p id="increaseOff" class="hidden">Future increase estimate is turned off.</p></div></aside></div></section>
+
+<section id="benefits" class="panel"><h2>Benefit Elections</h2><p>Select medical, dental, vision, and optional HSA contribution amounts. Each benefit includes a no coverage option.</p><div class="three"><div class="card blue"><h3>Medical</h3><label>Medical Plan</label><select id="medicalPlan" onchange="calculateAll()"><option value="none">No Medical Coverage</option><option value="hsa" selected>HSA Plan (CDHP)</option><option value="traditional">Traditional Plan</option></select><label>Coverage Level</label><select id="medicalCov" onchange="calculateAll()"><option value="none">No Coverage</option><option value="employee" selected>Employee Only</option><option value="dual">Dual</option><option value="family">Family</option></select></div><div class="card green"><h3>Dental</h3><label>Dental Plan</label><select id="dentalPlan" onchange="calculateAll()"><option value="none">No Dental Coverage</option><option value="epo">EPO Plan</option><option value="ppo1" selected>PPO Plus Plan 1</option><option value="ppo2">PPO Plus Plan 2</option></select><label>Coverage Level</label><select id="dentalCov" onchange="calculateAll()"><option value="none">No Coverage</option><option value="employee" selected>Employee Only</option><option value="dual">Dual</option><option value="family">Family</option></select></div><div class="card red"><h3>Vision</h3><label>Vision Coverage</label><select id="visionCov" onchange="calculateAll()"><option value="none">No Vision Coverage</option><option value="employee" selected>Employee Only</option><option value="dual">Dual</option><option value="family">Family</option></select></div></div><div class="card blue" id="hsaContributionCard"><h3>Optional HSA Contribution</h3><p>If you enroll in the HSA Plan, you can estimate your own HSA contribution and the potential County match. The County matches 50% of your HSA contribution up to $30 per pay period.</p><div class="two"><div><label>Your HSA Contribution Per Pay Period</label><input id="hsaEmployeePerPay" type="number" value="0" min="0" step="1" oninput="calculateAll()"></div><div><label>Estimated County HSA Match Per Pay Period</label><input id="hsaCountyMatchPerPay" type="text" value="$0.00" readonly></div></div><div class="kpi"><span>Your annual HSA contribution</span><strong id="hsaEmployeeAnnual">$0.00</strong></div><div class="kpi"><span>Estimated annual County HSA match</span><strong id="hsaCountyMatchAnnual">$0.00</strong></div></div><div class="card"><h3>Selected Benefit Cost</h3><div class="four"><div class="card"><h3>Medical</h3><div class="result" id="medicalCost">$0.00</div><p>per pay period</p></div><div class="card"><h3>Dental</h3><div class="result" id="dentalCost">$0.00</div><p>per pay period</p></div><div class="card"><h3>Vision</h3><div class="result" id="visionCost">$0.00</div><p>per pay period</p></div><div class="card"><h3>Total</h3><div class="result" id="benefitCost">$0.00</div><p>per pay period</p></div></div></div><div class="card"><h3>Rate Tables</h3><details open><summary>Medical Rates</summary><div class="details-body"><div class="table-scroll" data-mobile-scroll="true"><table><thead><tr><th>Plan</th><th>Coverage</th><th>Employee Monthly</th><th>County Monthly</th></tr></thead><tbody id="medTable"></tbody></table></div></div></details><details><summary>Dental Rates</summary><div class="details-body"><div class="table-scroll" data-mobile-scroll="true"><table><thead><tr><th>Plan</th><th>Coverage</th><th>Employee Monthly</th><th>County Monthly</th></tr></thead><tbody id="dentTable"></tbody></table></div></div></details><details><summary>Vision Rates</summary><div class="details-body"><div class="table-scroll" data-mobile-scroll="true"><table><thead><tr><th>Coverage</th><th>Employee Monthly</th></tr></thead><tbody id="visTable"></tbody></table></div></div></details></div></section>
+
+<section id="retire" class="panel"><div class="grid"><div><h2>Retirement & Voluntary Benefits</h2><div class="card green"><h3>VRS Employee Contribution</h3><div class="toggle"><input id="vrsToggle" type="checkbox" checked onchange="calculateAll()"><label style="margin:0">Include mandatory 5% VRS employee contribution</label></div><p>Full-time employees participating in VRS generally contribute 5% of base gross income. County employer contribution rates vary and are not estimated in this tool.</p></div>
+<div class="card blue">
+  <h3>Optional 457 Deferred Compensation Estimator</h3>
+  <p>Estimate an optional 457 contribution. James City County matches 50% of the employee contribution up to a maximum of $15 per month.</p>
+  <div class="toggle-row">
+    <input id="deferredToggle" type="checkbox" onchange="calculateAll()">
+    <label for="deferredToggle" style="margin:0">Include optional 457 contribution estimate</label>
+  </div>
+  <div id="deferredInputs" class="hidden">
+    <div class="two">
+      <div>
+        <label for="deferredType">Contribution Method</label>
+        <select id="deferredType" onchange="calculateAll()">
+          <option value="percent">Percentage of Pay</option>
+          <option value="dollar">Dollar Amount Per Pay Period</option>
+        </select>
+      </div>
+      <div>
+        <label for="deferredAmount">Contribution Amount</label>
+        <input id="deferredAmount" type="number" value="1" min="0" step=".25" oninput="calculateAll()">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card red"><h3>Critical Illness Insurance</h3><label>Coverage Amount</label><select id="ciCov" onchange="calculateAll()"><option value="none">No Coverage</option><option value="10000">$10,000 Coverage</option><option value="20000">$20,000 Coverage</option></select><div class="two"><div><label>Age Band</label><select id="ciAge" onchange="calculateAll()"><option value="18-29">18-29</option><option value="30-39">30-39</option><option value="40-49">40-49</option><option value="50-59">50-59</option><option value="60-69">60-69</option><option value="70+">70+</option></select></div><div><label>Tobacco Status</label><select id="ciTobacco" onchange="calculateAll()"><option value="non">Non-Tobacco</option><option value="tobacco">Tobacco</option></select></div></div></div></div><aside><div class="card"><h3>Selected Retirement / Voluntary Costs</h3><div class="kpi"><span>VRS 5% per pay period</span><strong id="vrsPerPay">$0.00</strong></div><div class="kpi"><span>VRS 5% annual</span><strong id="vrsAnnual">$0.00</strong></div><div class="kpi"><span>Critical illness per pay period</span><strong id="ciPerPay">$0.00</strong></div><div class="kpi"><span>Critical illness annual</span><strong id="ciAnnual">$0.00</strong></div>
+          <div class="kpi"><span>Optional 457 per pay period</span><strong id="defPerPay">$0.00</strong></div>
+          <div class="kpi"><span>Optional 457 annual</span><strong id="defAnnual">$0.00</strong></div>
+          <div class="kpi"><span>Estimated County 457 match annual</span><strong id="defMatchAnnual">$0.00</strong></div></div></aside></div></section>
+
+<section id="impact" class="panel"><div class="grid"><div><h2>Estimated Paycheck Impact</h2><p>This section subtracts selected employee-paid deductions from estimated gross pay.</p><div class="card green"><h3>Estimated Pay Before Taxes</h3><div class="kpi"><span>Gross pay per pay period</span><strong id="impGross">$0.00</strong></div><div class="kpi"><span>Medical</span><strong id="impMed">$0.00</strong></div><div class="kpi"><span>Dental</span><strong id="impDent">$0.00</strong></div><div class="kpi"><span>Vision</span><strong id="impVis">$0.00</strong></div><div class="kpi"><span>VRS 5%</span><strong id="impVrs">$0.00</strong></div><div class="kpi"><span>Critical illness</span><strong id="impCi">$0.00</strong></div><div class="kpi"><span>HSA employee contribution</span><strong id="impHsa">$0.00</strong></div><div class="kpi"><span>Optional 457 contribution</span><strong id="imp457">$0.00</strong></div><div class="kpi"><span>Total selected deductions</span><strong id="impTotalDed">$0.00</strong></div><div class="kpi"><span>Estimated pay before taxes</span><strong id="impAfter">$0.00</strong></div></div></div><aside><div class="callout warning"><strong>Important:</strong> This is not a net pay calculator. Federal taxes, state taxes, FICA, optional retirement savings, optional life, disability, garnishments, and other deductions are not included.</div></aside></div></section>
+
+<section id="compare" class="panel"><h2>Compare Two Benefit Elections</h2><p>Compare two benefit packages side-by-side using the salary or hourly rate entered on the first tab.</p><div class="two"><div class="card blue"><h3>Scenario A</h3><label>Medical Plan</label><select id="aMedicalPlan" onchange="calculateAll()"><option value="none">No Medical</option><option value="hsa" selected>HSA Plan</option><option value="traditional">Traditional</option></select><label>Medical Coverage</label><select id="aMedicalCov" onchange="calculateAll()"><option value="none">No Coverage</option><option value="employee" selected>Employee</option><option value="dual">Dual</option><option value="family">Family</option></select><label>Dental Plan</label><select id="aDentalPlan" onchange="calculateAll()"><option value="none">No Dental</option><option value="epo">EPO</option><option value="ppo1" selected>PPO Plus 1</option><option value="ppo2">PPO Plus 2</option></select><label>Dental Coverage</label><select id="aDentalCov" onchange="calculateAll()"><option value="none">No Coverage</option><option value="employee" selected>Employee</option><option value="dual">Dual</option><option value="family">Family</option></select><label>Vision</label><select id="aVisionCov" onchange="calculateAll()"><option value="none">No Vision</option><option value="employee" selected>Employee</option><option value="dual">Dual</option><option value="family">Family</option></select><label>Critical Illness</label><select id="aCiCov" onchange="calculateAll()"><option value="none">No Coverage</option><option value="10000">$10,000</option><option value="20000">$20,000</option></select></div><div class="card red"><h3>Scenario B</h3><label>Medical Plan</label><select id="bMedicalPlan" onchange="calculateAll()"><option value="none">No Medical</option><option value="hsa">HSA Plan</option><option value="traditional" selected>Traditional</option></select><label>Medical Coverage</label><select id="bMedicalCov" onchange="calculateAll()"><option value="none">No Coverage</option><option value="employee" selected>Employee</option><option value="dual">Dual</option><option value="family">Family</option></select><label>Dental Plan</label><select id="bDentalPlan" onchange="calculateAll()"><option value="none">No Dental</option><option value="epo">EPO</option><option value="ppo1">PPO Plus 1</option><option value="ppo2" selected>PPO Plus 2</option></select><label>Dental Coverage</label><select id="bDentalCov" onchange="calculateAll()"><option value="none">No Coverage</option><option value="employee" selected>Employee</option><option value="dual">Dual</option><option value="family">Family</option></select><label>Vision</label><select id="bVisionCov" onchange="calculateAll()"><option value="none">No Vision</option><option value="employee" selected>Employee</option><option value="dual">Dual</option><option value="family">Family</option></select><label>Critical Illness</label><select id="bCiCov" onchange="calculateAll()"><option value="none">No Coverage</option><option value="10000">$10,000</option><option value="20000">$20,000</option></select></div></div><div class="card"><h3>Scenario Comparison Results</h3><div class="table-scroll" data-mobile-scroll="true"><table>
+        <thead><tr><th>Category</th><th>Scenario A</th><th>Scenario B</th></tr></thead>
+        <tbody>
+          <tr><td>Employee monthly deductions</td><td id="aMonthlyDed">$0.00</td><td id="bMonthlyDed">$0.00</td></tr>
+          <tr><td>Employee annual deductions</td><td id="aAnnualDed">$0.00</td><td id="bAnnualDed">$0.00</td></tr>
+          <tr><td>Estimated pay before taxes / pay period</td><td id="aAfterPay">$0.00</td><td id="bAfterPay">$0.00</td></tr>
+          <tr><td>County annual benefit contribution</td><td id="aEmployerAnnual">$0.00</td><td id="bEmployerAnnual">$0.00</td></tr>
+          <tr><td>Estimated total rewards value</td><td id="aTotalRewards">$0.00</td><td id="bTotalRewards">$0.00</td></tr>
+        </tbody>
+      </table></div><p class="callout">Critical illness comparison uses the age and tobacco status selected on the Retirement / Voluntary tab.</p></div></section>
+
+<section id="rewards" class="panel"><div class="grid"><div><h2>Total Rewards Dashboard</h2><p>This section highlights salary plus estimated County-paid benefit contributions.</p><div class="card green"><h3>Your Estimated Total Rewards Package</h3><div id="totalRewards" class="big">$0.00</div><p>Estimated annual value based on selected benefits.</p><div class="kpi"><span>Annual gross pay</span><strong id="rewSalary">$0.00</strong></div><div class="kpi"><span>County medical contribution</span><strong id="rewMed">$0.00</strong></div><div class="kpi"><span>County dental contribution</span><strong id="rewDent">$0.00</strong></div><div class="kpi"><span>County HSA funding</span><strong id="rewHsaBase">$0.00</strong></div><div class="kpi"><span>Potential County HSA match</span><strong id="rewHsaMatch">$0.00</strong></div><div class="kpi"><span>Estimated County 457 match</span><strong id="rew457Match">$0.00</strong></div></div></div><aside><div class="card blue"><h3>HSA Plan Employer Investment</h3><p>If enrolled in the HSA Plan, the County contributes $1,040 annually to the employee's HSA and may match 50% of employee contributions up to $30 per pay period.</p><div class="kpi"><span>Base HSA funding</span><strong>$1,040.00</strong></div><div class="kpi"><span>Maximum annual match</span><strong>$720.00</strong></div><div class="kpi"><span>Maximum County HSA investment</span><strong>$1,760.00</strong></div>
+          <div class="kpi"><span>457 employer match maximum</span><strong>$180.00/year</strong></div></div><div class="callout warning"><strong>VRS employer contribution note:</strong> County VRS employer contributions are not included because the applicable rate can vary by employee and plan factors.</div></aside></div></section>
+
+<section id="learn" class="panel"><h2>HSA / FSA Education</h2><p>Use this section as a quick guide to help understand common benefit account terms.</p><div class="card"><details open><summary>What is an HSA?</summary><div class="details-body"><p>A Health Savings Account, or HSA, is a tax-advantaged account used to pay eligible medical expenses. HSAs are generally connected to qualifying high-deductible health plans.</p><ul><li>Funds can carry over from year to year.</li><li>The account is owned by the employee.</li><li>Eligibility rules apply.</li></ul></div></details><details><summary>What is a Health Care FSA?</summary><div class="details-body"><p>A Health Care Flexible Spending Account allows employees to set aside pre-tax money for eligible health care expenses. FSAs are usually plan-year based and may have use-it-or-lose-it rules.</p></div></details><details><summary>What is a Limited Purpose FSA?</summary><div class="details-body"><p>A Limited Purpose FSA is generally used for eligible dental and vision expenses and may be paired with an HSA-compatible medical plan, depending on plan rules.</p></div></details><details><summary>Why Total Compensation Matters</summary><div class="details-body"><p>Total compensation includes more than salary. Employer-paid contributions toward health coverage, dental coverage, HSA funding, retirement, leave, holidays, and other benefits add value to the overall employment package.</p></div></details></div></section>
+
+<section id="summary" class="panel"><div class="print-only"><h1>James City County New Hire Total Rewards Summary</h1></div><h2>Printable Summary</h2><p>Review the estimated salary, deductions, benefit elections, and total rewards value below.</p><div class="card green"><h3>New Hire Estimate Summary</h3><div class="kpi"><span>Calculation method</span><strong id="sumMode">Annual salary</strong></div><div class="kpi"><span>Annual gross pay</span><strong id="sumSalary">$0.00</strong></div><div class="kpi"><span>Gross pay per pay period</span><strong id="sumGross">$0.00</strong></div><div class="kpi"><span>Hourly equivalent</span><strong id="sumHourly">$0.00</strong></div><div class="kpi"><span>Medical election</span><strong id="sumMedical">—</strong></div><div class="kpi"><span>Dental election</span><strong id="sumDental">—</strong></div><div class="kpi"><span>Vision election</span><strong id="sumVision">—</strong></div><div class="kpi"><span>Critical illness election</span><strong id="sumCi">—</strong></div><div class="kpi"><span>HSA contribution per pay</span><strong id="sumHsaPerPay">$0.00</strong></div><div class="kpi"><span>County HSA match estimate</span><strong id="sumHsaMatch">$0.00</strong></div>
+      <div class="kpi"><span>Optional 457 contribution per pay</span><strong id="sum457PerPay">$0.00</strong></div>
+      <div class="kpi"><span>County 457 match estimate</span><strong id="sum457Match">$0.00</strong></div><div class="kpi"><span>Total selected deductions per pay</span><strong id="sumDed">$0.00</strong></div><div class="kpi"><span>Estimated pay before taxes</span><strong id="sumAfter">$0.00</strong></div><div class="kpi"><span>Estimated total rewards value</span><strong id="sumRewards">$0.00</strong></div><div class="kpi"><span>Future increase preview</span><strong id="sumIncrease">—</strong></div></div><div class="callout"><strong>Disclaimer:</strong> This tool is for planning purposes only. It is not an official salary quote, benefit confirmation, paycheck estimate, legal notice, or enrollment record. Official plan documents and payroll records govern.</div><div class="actions"><button class="action" onclick="window.print()">Print / Save as PDF</button><button class="action" onclick="downloadPdfStatement()">Download PDF Statement</button><button class="action secondary" onclick="resetForm()">Reset Example Values</button></div></section>
+</main>
+
+<button id="backToTop" class="back-to-top" onclick="window.scrollTo({top:0, behavior:'smooth'});">Back to top ↑</button>
+
+<footer><div class="foot"><strong>James City County, Virginia</strong><span class="mission">We work in partnership with all citizens to achieve a quality community.</span></div></footer>
+
+
+<script>
+const payPeriods = 24;
+
+const medical = {
+  none: {label:"No Medical Coverage", emp:{none:0,employee:0,dual:0,family:0}, er:{none:0,employee:0,dual:0,family:0}},
+  hsa: {label:"HSA Plan (CDHP)", emp:{none:0,employee:51,dual:145,family:190}, er:{none:0,employee:842,dual:1491,family:2019}},
+  traditional: {label:"Traditional Plan", emp:{none:0,employee:140,dual:347,family:552}, er:{none:0,employee:842,dual:1514,family:2057}}
+};
+
+const dental = {
+  none: {label:"No Dental Coverage", emp:{none:0,employee:0,dual:0,family:0}, er:{none:0,employee:0,dual:0,family:0}},
+  epo: {label:"EPO Plan", emp:{none:0,employee:6,dual:15,family:26}, er:{none:0,employee:22,dual:38,family:58}},
+  ppo1: {label:"PPO Plus Plan 1", emp:{none:0,employee:2,dual:5,family:10}, er:{none:0,employee:22,dual:38,family:58}},
+  ppo2: {label:"PPO Plus Plan 2", emp:{none:0,employee:12,dual:24,family:31}, er:{none:0,employee:28,dual:47,family:71}}
+};
+
+const vision = {none:0, employee:8.28, dual:15.32, family:23.56};
+
+const covLabels = {none:"No Coverage", employee:"Employee Only", dual:"Dual", family:"Family"};
+
+const criticalIllnessRates = {
+  non: {
+    "10000": {"18-29":3.50,"30-39":5.00,"40-49":9.60,"50-59":18.70,"60-69":33.20,"70+":58.20},
+    "20000": {"18-29":7.00,"30-39":10.00,"40-49":19.20,"50-59":37.40,"60-69":66.40,"70+":116.40}
+  },
+  tobacco: {
+    "10000": {"18-29":3.70,"30-39":6.10,"40-49":14.40,"50-59":34.30,"60-69":69.70,"70+":123.10},
+    "20000": {"18-29":7.40,"30-39":12.20,"40-49":28.80,"50-59":68.60,"60-69":139.40,"70+":246.20}
+  }
+};
+
+function el(id){ return document.getElementById(id); }
+function money(value){
+  const safe = Number.isFinite(value) ? value : 0;
+  return safe.toLocaleString("en-US", {style:"currency", currency:"USD"});
+}
+function n(id){
+  const element = el(id);
+  return element ? (parseFloat(element.value) || 0) : 0;
+}
+function setText(id, value){
+  const element = el(id);
+  if(element) element.textContent = value;
+}
+function setValue(id, value){
+  const element = el(id);
+  if(element) element.value = value;
+}
+
+
+
+function getPanelIdFromButton(button){
+  const onclick = button.getAttribute("onclick") || "";
+  const match = onclick.match(/showTab\(['"]([^'"]+)['"]/);
+  return match ? match[1] : "";
+}
+
+function buildMobileSectionSelect(){
+  const select = document.getElementById("mobileSectionSelect");
+  if(!select) return;
+
+  select.innerHTML = "";
+
+  document.querySelectorAll(".tabs .tab, .tabs .tab-btn").forEach((button) => {
+    const panelId = getPanelIdFromButton(button);
+    if(!panelId || !document.getElementById(panelId)) return;
+
+    const option = document.createElement("option");
+    option.value = panelId;
+    option.textContent = button.textContent.trim();
+    select.appendChild(option);
+  });
+
+  const activePanel = document.querySelector(".panel.active");
+  if(activePanel) select.value = activePanel.id;
+}
+
+function showTabFromSelect(panelId){
+  const matchingButton = Array.from(document.querySelectorAll(".tabs .tab, .tabs .tab-btn")).find(button => getPanelIdFromButton(button) === panelId);
+  showTab(panelId, matchingButton || null);
+  const panel = document.getElementById(panelId);
+  if(panel){
+    setTimeout(() => panel.scrollIntoView({behavior:"smooth", block:"start"}), 50);
+  }
+}
+
+function syncMobileSectionSelect(panelId){
+  const select = document.getElementById("mobileSectionSelect");
+  if(select && Array.from(select.options).some(option => option.value === panelId)){
+    select.value = panelId;
+  }
+}
+
+function showTab(id, btn){
+  syncMobileSectionSelect(id);
+  document.querySelectorAll(".panel").forEach(panel => panel.classList.remove("active"));
+  document.querySelectorAll(".tab, .tab-btn").forEach(tab => tab.classList.remove("active"));
+  const target = el(id);
+  if(target) target.classList.add("active");
+  if(btn) btn.classList.add("active");
+  calculateAll();
+}
+
+function getPayMode(){
+  const selected = document.querySelector('input[name="payMode"]:checked');
+  return selected ? selected.value : "salary";
+}
+
+function switchMode(){
+  const selectedMode = getPayMode();
+  const salaryInputs = el("salaryInputs");
+  const hourlyInputs = el("hourlyInputs");
+  if(salaryInputs) salaryInputs.classList.toggle("hidden", selectedMode !== "salary");
+  if(hourlyInputs) hourlyInputs.classList.toggle("hidden", selectedMode !== "hourly");
+  calculateAll();
+}
+
+function getPay(){
+  const selectedMode = getPayMode();
+  const hoursPerWeek = n("hoursWeek");
+  const annualHours = hoursPerWeek * 52;
+  let annualPay = 0;
+  let hourlyRate = 0;
+
+  if(selectedMode === "salary"){
+    annualPay = n("salaryVal");
+    hourlyRate = annualHours > 0 ? annualPay / annualHours : 0;
+    setValue("hourlyVal", hourlyRate.toFixed(2));
+  } else {
+    hourlyRate = n("hourlyVal");
+    annualPay = hourlyRate * annualHours;
+    setValue("salaryVal", annualPay.toFixed(2));
+  }
+
+  return {
+    mode: selectedMode,
+    annual: annualPay,
+    hourly: hourlyRate,
+    annualHours: annualHours,
+    grossPerPay: annualPay / payPeriods
+  };
+}
+
+function getCriticalIllnessMonthly(coverageAmount){
+  if(coverageAmount === "none") return 0;
+  const tobacco = el("ciTobacco") ? el("ciTobacco").value : "non";
+  const age = el("ciAge") ? el("ciAge").value : "18-29";
+  return criticalIllnessRates[tobacco]?.[coverageAmount]?.[age] || 0;
+}
+
+function currentElection(){
+  return {
+    mp: el("medicalPlan")?.value || "none",
+    mc: el("medicalCov")?.value || "none",
+    dp: el("dentalPlan")?.value || "none",
+    dc: el("dentalCov")?.value || "none",
+    vc: el("visionCov")?.value || "none",
+    ci: el("ciCov")?.value || "none"
+  };
+}
+
+function scenarioElection(prefix){
+  return {
+    mp: el(prefix + "MedicalPlan")?.value || "none",
+    mc: el(prefix + "MedicalCov")?.value || "none",
+    dp: el(prefix + "DentalPlan")?.value || "none",
+    dc: el(prefix + "DentalCov")?.value || "none",
+    vc: el(prefix + "VisionCov")?.value || "none",
+    ci: el(prefix + "CiCov")?.value || "none"
+  };
+}
+
+function hsaEmployeePerPay(election){
+  const eligible = election.mp === "hsa" && election.mc !== "none";
+  return eligible ? n("hsaEmployeePerPay") : 0;
+}
+
+function hsaCountyMatchPerPay(election){
+  return Math.min(hsaEmployeePerPay(election) * 0.5, 30);
+}
+
+function benefitCosts(election){
+  const medicalEmployeeMonthly = medical[election.mp]?.emp?.[election.mc] || 0;
+  const medicalCountyMonthly = medical[election.mp]?.er?.[election.mc] || 0;
+  const dentalEmployeeMonthly = dental[election.dp]?.emp?.[election.dc] || 0;
+  const dentalCountyMonthly = dental[election.dp]?.er?.[election.dc] || 0;
+  const visionEmployeeMonthly = vision[election.vc] || 0;
+  const criticalIllnessMonthly = getCriticalIllnessMonthly(election.ci);
+
+  const hsaEligible = election.mp === "hsa" && election.mc !== "none";
+  const hsaUserPerPay = hsaEmployeePerPay(election);
+  const hsaMatchPerPay = hsaCountyMatchPerPay(election);
+  const hsaBaseAnnual = hsaEligible ? 1040 : 0;
+  const hsaMatchAnnual = hsaEligible ? hsaMatchPerPay * payPeriods : 0;
+
+  const employeeMonthlyPremiums = medicalEmployeeMonthly + dentalEmployeeMonthly + visionEmployeeMonthly + criticalIllnessMonthly;
+  const employeePerPay = (employeeMonthlyPremiums / 2) + hsaUserPerPay;
+  const employeeAnnual = employeeMonthlyPremiums * 12 + hsaUserPerPay * payPeriods;
+  const countyAnnual = (medicalCountyMonthly + dentalCountyMonthly) * 12 + hsaBaseAnnual + hsaMatchAnnual;
+
+  return {
+    medicalEmployeeMonthly,
+    medicalCountyMonthly,
+    dentalEmployeeMonthly,
+    dentalCountyMonthly,
+    visionEmployeeMonthly,
+    criticalIllnessMonthly,
+    hsaUserPerPay,
+    hsaMatchPerPay,
+    hsaBaseAnnual,
+    hsaMatchAnnual,
+    employeeMonthly: employeeMonthlyPremiums + hsaUserPerPay * 2,
+    employeePerPay,
+    employeeAnnual,
+    countyAnnual
+  };
+}
+
+function getVrsAnnual(pay){
+  return el("vrsToggle") && el("vrsToggle").checked ? pay.annual * 0.05 : 0;
+}
+
+function get457PerPay(pay){
+  const toggle = el("deferredToggle");
+  if(!toggle || !toggle.checked) return 0;
+
+  const type = el("deferredType")?.value || "percent";
+  const amount = n("deferredAmount");
+
+  if(type === "percent"){
+    return pay.grossPerPay * (amount / 100);
+  }
+  return amount;
+}
+
+function get457CountyMatchAnnual(perPay457){
+  return Math.min(perPay457 * 0.5 * payPeriods, 180);
+}
+
+function benefitLabel(type, plan, coverage){
+  if(type === "medical"){
+    return plan === "none" || coverage === "none" ? "No Medical Coverage" : `${medical[plan].label} - ${covLabels[coverage]}`;
+  }
+  if(type === "dental"){
+    return plan === "none" || coverage === "none" ? "No Dental Coverage" : `${dental[plan].label} - ${covLabels[coverage]}`;
+  }
+  if(type === "vision"){
+    return coverage === "none" ? "No Vision Coverage" : `Vision - ${covLabels[coverage]}`;
+  }
+  return "—";
+}
+
+function buildRateTables(){
+  const medTable = el("medTable");
+  const dentTable = el("dentTable");
+  const visTable = el("visTable");
+
+  if(medTable){
+    medTable.innerHTML = "";
+    ["hsa", "traditional"].forEach(plan => {
+      ["employee", "dual", "family"].forEach(cov => {
+        medTable.innerHTML += `<tr><td>${medical[plan].label}</td><td>${covLabels[cov]}</td><td>${money(medical[plan].emp[cov])}</td><td>${money(medical[plan].er[cov])}</td></tr>`;
+      });
+    });
+  }
+
+  if(dentTable){
+    dentTable.innerHTML = "";
+    ["epo", "ppo1", "ppo2"].forEach(plan => {
+      ["employee", "dual", "family"].forEach(cov => {
+        dentTable.innerHTML += `<tr><td>${dental[plan].label}</td><td>${covLabels[cov]}</td><td>${money(dental[plan].emp[cov])}</td><td>${money(dental[plan].er[cov])}</td></tr>`;
+      });
+    });
+  }
+
+  if(visTable){
+    visTable.innerHTML = "";
+    ["employee", "dual", "family"].forEach(cov => {
+      visTable.innerHTML += `<tr><td>${covLabels[cov]}</td><td>${money(vision[cov])}</td></tr>`;
+    });
+  }
+}
+
+function calculateAll(){
+  const pay = getPay();
+  const election = currentElection();
+  const costs = benefitCosts(election);
+
+  const vrsAnnual = getVrsAnnual(pay);
+  const vrsPerPay = vrsAnnual / payPeriods;
+  const criticalIllnessPerPay = costs.criticalIllnessMonthly / 2;
+
+  const deferredPerPay = get457PerPay(pay);
+  const deferredAnnual = deferredPerPay * payPeriods;
+  const deferredCountyMatchAnnual = get457CountyMatchAnnual(deferredPerPay);
+
+  const totalDeductionsPerPay = costs.employeePerPay + vrsPerPay + deferredPerPay;
+  const payBeforeTaxes = pay.grossPerPay - totalDeductionsPerPay;
+  const totalRewards = pay.annual + costs.countyAnnual + deferredCountyMatchAnnual;
+
+  setValue("annualHours", pay.annualHours.toFixed(0));
+  setValue("monthlyGross", money(pay.annual / 12));
+  setText("annualHoursText", pay.annualHours.toLocaleString("en-US"));
+  setText("grossPerPay", money(pay.grossPerPay));
+  setText("annualPay", money(pay.annual));
+  setText("hourlyEq", money(pay.hourly));
+
+  const increaseOn = el("increaseToggle")?.checked || false;
+  el("increaseInputs")?.classList.toggle("hidden", !increaseOn);
+  el("increaseResults")?.classList.toggle("hidden", !increaseOn);
+  el("increaseOff")?.classList.toggle("hidden", increaseOn);
+  let increaseSummary = "Not selected";
+
+  if(increaseOn){
+    const pct = n("increasePct");
+    const newAnnual = pay.annual * (1 + pct / 100);
+    const newHourly = pay.annualHours > 0 ? newAnnual / pay.annualHours : 0;
+    setText("incAnnualPay", money(newAnnual));
+    setText("incAmount", money(newAnnual - pay.annual));
+    setText("incPerPay", money(newAnnual / payPeriods - pay.grossPerPay));
+    setText("incHourly", money(newHourly));
+    increaseSummary = `${pct}% increase = ${money(newAnnual)} annual / ${money(newHourly)} hourly`;
+  }
+
+  const hsaCard = el("hsaContributionCard");
+  if(hsaCard) hsaCard.classList.toggle("hidden", !(election.mp === "hsa" && election.mc !== "none"));
+
+  const deferredInputs = el("deferredInputs");
+  if(deferredInputs) deferredInputs.classList.toggle("hidden", !(el("deferredToggle")?.checked));
+
+  setValue("hsaCountyMatchPerPay", money(costs.hsaMatchPerPay));
+  setText("hsaEmployeeAnnual", money(costs.hsaUserPerPay * payPeriods));
+  setText("hsaCountyMatchAnnual", money(costs.hsaMatchAnnual));
+
+  setText("medicalCost", money(costs.medicalEmployeeMonthly / 2));
+  setText("dentalCost", money(costs.dentalEmployeeMonthly / 2));
+  setText("visionCost", money(costs.visionEmployeeMonthly / 2));
+  setText("benefitCost", money(costs.employeePerPay));
+
+  setText("vrsPerPay", money(vrsPerPay));
+  setText("vrsAnnual", money(vrsAnnual));
+  setText("ciPerPay", money(criticalIllnessPerPay));
+  setText("ciAnnual", money(costs.criticalIllnessMonthly * 12));
+  setText("defPerPay", money(deferredPerPay));
+  setText("defAnnual", money(deferredAnnual));
+  setText("defMatchAnnual", money(deferredCountyMatchAnnual));
+
+  setText("impGross", money(pay.grossPerPay));
+  setText("impMed", money(costs.medicalEmployeeMonthly / 2));
+  setText("impDent", money(costs.dentalEmployeeMonthly / 2));
+  setText("impVis", money(costs.visionEmployeeMonthly / 2));
+  setText("impVrs", money(vrsPerPay));
+  setText("impCi", money(criticalIllnessPerPay));
+  setText("impHsa", money(costs.hsaUserPerPay));
+  setText("imp457", money(deferredPerPay));
+  setText("impTotalDed", money(totalDeductionsPerPay));
+  setText("impAfter", money(payBeforeTaxes));
+
+  setText("totalRewards", money(totalRewards));
+  setText("rewSalary", money(pay.annual));
+  setText("rewMed", money(costs.medicalCountyMonthly * 12));
+  setText("rewDent", money(costs.dentalCountyMonthly * 12));
+  setText("rewHsaBase", money(costs.hsaBaseAnnual));
+  setText("rewHsaMatch", money(costs.hsaMatchAnnual));
+  setText("rew457Match", money(deferredCountyMatchAnnual));
+
+  const scenarioA = benefitCosts(scenarioElection("a"));
+  const scenarioB = benefitCosts(scenarioElection("b"));
+
+  const aDeductionsPerPay = scenarioA.employeePerPay + vrsPerPay + deferredPerPay;
+  const bDeductionsPerPay = scenarioB.employeePerPay + vrsPerPay + deferredPerPay;
+  const aRewards = pay.annual + scenarioA.countyAnnual + deferredCountyMatchAnnual;
+  const bRewards = pay.annual + scenarioB.countyAnnual + deferredCountyMatchAnnual;
+
+  setText("aMonthlyDed", money(scenarioA.employeeMonthly + vrsAnnual / 12 + deferredAnnual / 12));
+  setText("bMonthlyDed", money(scenarioB.employeeMonthly + vrsAnnual / 12 + deferredAnnual / 12));
+  setText("aAnnualDed", money(scenarioA.employeeAnnual + vrsAnnual + deferredAnnual));
+  setText("bAnnualDed", money(scenarioB.employeeAnnual + vrsAnnual + deferredAnnual));
+  setText("aAfterPay", money(pay.grossPerPay - aDeductionsPerPay));
+  setText("bAfterPay", money(pay.grossPerPay - bDeductionsPerPay));
+  setText("aEmployerAnnual", money(scenarioA.countyAnnual + deferredCountyMatchAnnual));
+  setText("bEmployerAnnual", money(scenarioB.countyAnnual + deferredCountyMatchAnnual));
+  setText("aTotalRewards", money(aRewards));
+  setText("bTotalRewards", money(bRewards));
+
+  setText("sumMode", pay.mode === "salary" ? "Annual salary" : "Hourly rate");
+  setText("sumSalary", money(pay.annual));
+  setText("sumGross", money(pay.grossPerPay));
+  setText("sumHourly", money(pay.hourly));
+  setText("sumMedical", benefitLabel("medical", election.mp, election.mc));
+  setText("sumDental", benefitLabel("dental", election.dp, election.dc));
+  setText("sumVision", benefitLabel("vision", null, election.vc));
+  setText("sumCi", election.ci === "none" ? "No Critical Illness Coverage" : `Critical Illness - ${money(parseInt(election.ci, 10))} coverage`);
+  setText("sumHsaPerPay", money(costs.hsaUserPerPay));
+  setText("sumHsaMatch", money(costs.hsaMatchAnnual));
+  setText("sum457PerPay", money(deferredPerPay));
+  setText("sum457Match", money(deferredCountyMatchAnnual));
+  setText("sumDed", money(totalDeductionsPerPay));
+  setText("sumAfter", money(payBeforeTaxes));
+  setText("sumRewards", money(totalRewards));
+  setText("sumIncrease", increaseSummary);
+}
+
+function downloadPdfStatement(){
+  calculateAll();
+
+  if(!window.jspdf || !window.jspdf.jsPDF){
+    alert("PDF generator did not load. Please use Print / Save as PDF instead.");
+    return;
+  }
+
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({unit:"pt", format:"letter"});
+  const pay = getPay();
+  const election = currentElection();
+  const costs = benefitCosts(election);
+  const vrsAnnual = getVrsAnnual(pay);
+  const vrsPerPay = vrsAnnual / payPeriods;
+  const deferredPerPay = get457PerPay(pay);
+  const deferredAnnual = deferredPerPay * payPeriods;
+  const deferredCountyMatchAnnual = get457CountyMatchAnnual(deferredPerPay);
+  const totalDeductionsPerPay = costs.employeePerPay + vrsPerPay + deferredPerPay;
+  const payBeforeTaxes = pay.grossPerPay - totalDeductionsPerPay;
+  const totalRewards = pay.annual + costs.countyAnnual + deferredCountyMatchAnnual;
+
+  let y = 48;
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(18);
+  doc.text("James City County Total Rewards Statement", 48, y);
+  y += 24;
+
+  doc.setFont("helvetica", "normal");
+  doc.setFontSize(10);
+  doc.text("Planning estimate only. Not an official salary quote, benefit confirmation, or paycheck record.", 48, y);
+  y += 28;
+
+  function section(title){
+    y += 10;
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(13);
+    doc.text(title, 48, y);
+    y += 14;
+    doc.setLineWidth(0.5);
+    doc.line(48, y, 564, y);
+    y += 12;
+  }
+
+  function row(label, value){
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(10);
+    doc.text(label, 58, y);
+    doc.setFont("helvetica", "bold");
+    doc.text(value, 420, y);
+    y += 18;
+  }
+
+  section("Pay Estimate");
+  row("Annual gross pay", money(pay.annual));
+  row("Gross pay per pay period", money(pay.grossPerPay));
+  row("Hourly equivalent", money(pay.hourly));
+
+  section("Benefit Elections");
+  row("Medical", benefitLabel("medical", election.mp, election.mc));
+  row("Dental", benefitLabel("dental", election.dp, election.dc));
+  row("Vision", benefitLabel("vision", null, election.vc));
+  row("Critical illness", election.ci === "none" ? "No Critical Illness Coverage" : `Critical Illness - ${money(parseInt(election.ci, 10))} coverage`);
+
+  section("Estimated Deductions Per Pay Period");
+  row("Medical", money(costs.medicalEmployeeMonthly / 2));
+  row("Dental", money(costs.dentalEmployeeMonthly / 2));
+  row("Vision", money(costs.visionEmployeeMonthly / 2));
+  row("Critical illness", money(costs.criticalIllnessMonthly / 2));
+  row("HSA employee contribution", money(costs.hsaUserPerPay));
+  row("VRS 5%", money(vrsPerPay));
+  row("Optional 457", money(deferredPerPay));
+  row("Total selected deductions", money(totalDeductionsPerPay));
+  row("Estimated pay before taxes", money(payBeforeTaxes));
+
+  section("Estimated County Contributions / Total Rewards");
+  row("County medical contribution", money(costs.medicalCountyMonthly * 12));
+  row("County dental contribution", money(costs.dentalCountyMonthly * 12));
+  row("County HSA base funding", money(costs.hsaBaseAnnual));
+  row("County HSA match estimate", money(costs.hsaMatchAnnual));
+  row("County 457 match estimate", money(deferredCountyMatchAnnual));
+  row("Estimated total rewards value", money(totalRewards));
+
+  y += 14;
+  doc.setFont("helvetica", "italic");
+  doc.setFontSize(9);
+  doc.text("This estimate excludes taxes, FICA, optional life, disability, garnishments, and other deductions.", 48, y, {maxWidth:516});
+  doc.save("JCC_Total_Rewards_Statement.pdf");
+}
+
+function resetForm(){
+  document.querySelector('input[name="payMode"][value="salary"]').checked = true;
+  setValue("salaryVal", 55000);
+  setValue("hourlyVal", 26.44);
+  setValue("hoursWeek", 40);
+  setValue("medicalPlan", "hsa");
+  setValue("medicalCov", "employee");
+  setValue("dentalPlan", "ppo1");
+  setValue("dentalCov", "employee");
+  setValue("visionCov", "employee");
+  if(el("vrsToggle")) el("vrsToggle").checked = true;
+  setValue("ciCov", "none");
+  setValue("ciAge", "18-29");
+  setValue("ciTobacco", "non");
+  if(el("increaseToggle")) el("increaseToggle").checked = true;
+  setValue("increasePct", 4);
+  setValue("hsaEmployeePerPay", 0);
+  if(el("deferredToggle")) el("deferredToggle").checked = false;
+  setValue("deferredType", "percent");
+  setValue("deferredAmount", 1);
+  switchMode();
+}
+
+document.addEventListener("DOMContentLoaded", function(){
+  buildMobileSectionSelect();
+  buildRateTables();
+  switchMode();
+});
+</script>
+
+</body></html>
